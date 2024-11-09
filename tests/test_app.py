@@ -76,7 +76,7 @@ def test_predict_salary(client: FlaskClient):
 
     data = {
         'education': 'Master',  
-        'location': 'NYC',     
+        'location': 'Urban',     
         'job_title': 'Engineer',
         'gender': 'Male',       
         'age': 30,
