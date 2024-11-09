@@ -27,5 +27,4 @@ jobs:
           pip install -r requirements.txt  # Install dependencies from requirements.txt
 
       - name: Run tests
-        run: |
-          pytest test_app.py --maxfail=1 --disable-warnings -q  # Run the test file
+        run: pytest --maxfail=1 --disable-warnings -q  # Run the test file
