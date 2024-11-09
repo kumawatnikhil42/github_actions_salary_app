@@ -1,5 +1,5 @@
-
-from flask import Flask,request
+import pytest
+from flask import Flask
 from flask.testing import FlaskClient
 import numpy as np
 import pandas as pd
@@ -48,19 +48,23 @@ def index():
         age = request.form['age']
         experience = float(request.form['experience']) 
         
-
         education_encoded = lb_ed.transform([education])[0]
         location_encoded = lb_l.transform([location])[0]
         job_title_encoded = lb_jt.transform([job_title])[0]
         gender_encoded = lb_g.transform([gender])[0]
         
-
         input_data = np.array([[education_encoded, location_encoded, job_title_encoded, gender_encoded, age, experience]])
         
         predicted_salary = rf.predict(input_data)[0]
         
         return f'Predicted Salary: {predicted_salary}' 
     return 'Flask App is Running'
+
+
+@pytest.fixture
+def client():
+    with app.test_client() as client:
+        yield client
 
 
 def test_index(client: FlaskClient):
