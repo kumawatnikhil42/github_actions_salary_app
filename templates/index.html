@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Prediction</title>
+</head>
+<body>
+    <h1>Salary Prediction</h1>
+    <form method="POST">
+        <label for="education">Education:</label>
+        <select name="education" required>
+            <option value="High School">High School</option>
+            <option value="Bachelor">Bachelor</option>
+            <option value="Master">Master</option>
+            <option value="PhD">PhD</option>
+        </select><br><br>
+
+        <label for="location">Location:</label>
+        <select name="location" required>
+            <option value="Urban">Urban</option>
+            <option value="Suburban">Suburban</option>
+            <option value="Rural">Rural</option>
+
+        </select><br><br>
+
+        <label for="job_title">Job Title:</label>
+        <select name="job_title" required>
+            <option value="Manager">Manager</option>
+            <option value="Director">Director</option>
+            <option value="Engineer">Engineer</option>
+            <option value="Analyst">Analyst</option>
+        </select><br><br>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" step="any" name="age" required><br><br>
+
+        <label for="experience">Years of Experience:</label>
+        <input type="number" step="any" name="experience" required><br><br>
+
+        <button type="submit">Predict Salary</button>
+    </form>
+
+    {% if predicted_salary %}
+        <h2>Predicted Salary: ${{ predicted_salary }}</h2>
+    {% endif %}
+</body>
+</html>
